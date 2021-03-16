@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Buttons from './Buttons';
+import { useGlobalContext } from './context';
+import SearchForm from './SearchForm';
+import Stories from './Stories';
 
 function App() {
+  const { toggleTheme } = useGlobalContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav>
+        <div className='nav-center'>
+          <button className='btn' onClick={toggleTheme}>
+            toggle theme
+          </button>
+        </div>
+      </nav>
+      <SearchForm />
+      <Stories />
+      <Buttons />
+    </>
   );
 }
 
